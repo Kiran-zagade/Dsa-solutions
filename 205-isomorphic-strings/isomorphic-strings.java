@@ -1,38 +1,42 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        
         if(s.length()!=t.length()){
             return false;
         }
-        HashMap<Character, Character> mapST = new HashMap<>();
-        HashMap<Character, Character> mapTS = new HashMap<>();
-        //counting freuency of each character at s
+        
+        HashMap <Character,Character>mapST=new HashMap<>();
+        HashMap <Character,Character>mapTS=new HashMap<>();
+
         for(int i=0;i<s.length();i++){
-                Character chS=s.charAt(i);
-                Character chT=t.charAt(i);
+            Character chs=s.charAt(i);
+            Character cht=t.charAt(i);
 
-              if(mapST.containsKey(chS)){
-                     if(mapST.get(chS)!=chT){
-                        return false;
-                     }
-              }else{
-                mapST.put(chS,chT);
-              }
+        if(mapST.containsKey(chs)){
+            if(mapST.get(chs)!=(cht)){
+                return false;
+            }
+            }else{
+               mapST.put(chs,cht);
+            }
+        
+            if(mapTS.containsKey(cht)){
+                if(mapTS.get(cht)!=(chs)){
+                return false;
+            }
+            }else{
+                mapTS.put(cht,chs);
+            }
+        
 
-              if(mapTS.containsKey(chT)){
-                     if(mapTS.get(chT)!=chS){
-                        return false;
-                     }
-              }else{
-                mapTS.put(chT,chS);
+            }return true;
+            
+        }
+
+        
+
 
         }
         
 
 
-        }return true;
-        
-
-
-    }
-}
+    
