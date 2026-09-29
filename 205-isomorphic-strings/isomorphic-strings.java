@@ -3,40 +3,38 @@ class Solution {
         if(s.length()!=t.length()){
             return false;
         }
-        
-        HashMap <Character,Character>mapST=new HashMap<>();
-        HashMap <Character,Character>mapTS=new HashMap<>();
+
+        HashMap<Character,Character>mapst=new HashMap<>();
+        HashMap <Character,Character>mapts=new HashMap<>();
 
         for(int i=0;i<s.length();i++){
-            Character chs=s.charAt(i);
-            Character cht=t.charAt(i);
+            char chs=s.charAt(i);
+            char cht=t.charAt(i);
+            if(mapst.containsKey(chs)){
+                if(mapst.get(chs)!=cht){
+                    return false;
+                }
 
-        if(mapST.containsKey(chs)){
-            if(mapST.get(chs)!=(cht)){
-                return false;
-            }
             }else{
-               mapST.put(chs,cht);
+                mapst.put(chs,cht);
             }
-        
-            if(mapTS.containsKey(cht)){
-                if(mapTS.get(cht)!=(chs)){
-                return false;
-            }
-            }else{
-                mapTS.put(cht,chs);
-            }
-        
 
-            }return true;
+
             
+           
+                if(mapts.containsKey(cht)){
+                    if(mapts.get(cht)!=chs){
+                        return false;
+                    }
+                }else{
+                    mapts.put(cht,chs);
+                }
+                
+            }return true;
+
         }
+    }
 
-        
-
-
-        }
-        
 
 
     
